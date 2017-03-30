@@ -10,6 +10,7 @@ entity gen_dec is
 		);
 end; 
 
+
 architecture beh of gen_dec is
 signal out_dec_i: std_logic_vector(width**2-1 downto 0);
 begin
