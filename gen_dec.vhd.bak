@@ -1,0 +1,23 @@
+library ieee;
+use ieee.std_logic_1164.all
+
+entity gen_dec is
+	generic(width: integer: 3);
+	port(
+		inp_dec: in std_logic_vector(width-1 downto 0);
+		out_dec: out std_logic_vector(width**2-1 downto 0)
+		);
+end; 
+
+architecture beh of gen_dec is
+out_dec_i: std_logic_vector(width**2-1 downto 0);
+begin
+
+	out_dec_i <= others=>'0';
+	
+	out_dec_i <= ( out_dec_i(to_integer(unsigned(inp_dec))) => 1, others => 0 );
+	
+	out_dec <= out_dec_i;
+	
+end beh; 
+
